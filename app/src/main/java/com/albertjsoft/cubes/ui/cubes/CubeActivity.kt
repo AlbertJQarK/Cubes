@@ -1,8 +1,8 @@
 package com.albertjsoft.cubes.ui.cubes
 
-import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.ArrayAdapter
@@ -15,7 +15,7 @@ import com.albertjsoft.cubes.ui.cubes.list.CubesAdapter
 import javax.inject.Inject
 import io.reactivex.Observable
 
-class CubeActivity: Activity(), CubeView {
+class CubeActivity: AppCompatActivity(), CubeView {
 
     @Inject
     lateinit var presenter: CubePresenter
@@ -27,6 +27,7 @@ class CubeActivity: Activity(), CubeView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as CubesApp).component.inject(this)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         renderView()
         setUpPresenter()
     }
@@ -61,5 +62,10 @@ class CubeActivity: Activity(), CubeView {
         }
         builderSingle.setAdapter(arrayAdapter,null)
         builderSingle.show()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
