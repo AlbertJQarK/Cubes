@@ -7,7 +7,10 @@ import android.support.v7.widget.RecyclerView
 import com.albertjsoft.cubes.R
 import com.albertjsoft.cubes.app.CubesApp
 import com.albertjsoft.cubes.data.api.CubeService
+import com.albertjsoft.cubes.models.Cube
+import com.albertjsoft.cubes.ui.cubes.list.CubesAdapter
 import javax.inject.Inject
+import io.reactivex.Observable
 
 class CubeActivity: Activity(), CubeView {
 
@@ -32,5 +35,14 @@ class CubeActivity: Activity(), CubeView {
         setContentView(R.layout.activity_cube_list)
         list = findViewById(R.id.cube_list_recycleview)
         list!!.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun getCubes(listCube: List<Cube>) {
+        var adapter = CubesAdapter(listCube)
+        list!!.adapter = adapter
+    }
+
+    override fun itemClicks(): Observable<Int> {
+        return (list!!.adapter as CubesAdapter).observeClicks()
     }
 }
