@@ -7,4 +7,6 @@ interface CubePresenter {
     fun setView(cubeView: CubeView)
     fun setService(service: CubeService)
     fun loadCubes()
+    fun loadCube(id: Int)
+    fun observeClick()
 }

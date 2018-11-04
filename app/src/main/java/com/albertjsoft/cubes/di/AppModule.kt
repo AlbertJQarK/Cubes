@@ -7,7 +7,7 @@ import javax.inject.Singleton
 
 
 @Module
-class AppModule(val app: CubesApp) {
+class AppModule(private val app: CubesApp) {
     @Provides
     @Singleton
     fun provideApp() = app

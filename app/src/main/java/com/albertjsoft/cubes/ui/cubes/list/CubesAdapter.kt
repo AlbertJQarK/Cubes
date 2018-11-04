@@ -31,12 +31,4 @@ class CubesAdapter(private val listCubes: List<Cube>) : RecyclerView.Adapter<Cub
     fun observeClicks(): Observable<Int> {
         return itemClicks
     }
-
-/**
-    fun resetAdapter(cubes: ArrayList<Cube>) {
-        this.listCubes!!.clear()
-        this.listCubes!!.addAll(cubes)
-        notifyDataSetChanged()
-    }
-**/
 }

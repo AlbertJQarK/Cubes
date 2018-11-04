@@ -7,4 +7,5 @@ import io.reactivex.Observable
 interface CubeView {
     fun getCubes(listCubes: List<Cube>)
     fun itemClicks(): Observable<Int>
+    fun showCube(cube: Cube)
 }

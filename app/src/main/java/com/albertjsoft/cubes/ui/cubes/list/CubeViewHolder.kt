@@ -1,6 +1,5 @@
 package com.albertjsoft.cubes.ui.cubes.list
 
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.View
@@ -13,7 +12,7 @@ import kotlinx.android.synthetic.main.item_cube.view.*
 class CubeViewHolder(private var view: View, clickSubject: PublishSubject<Int>) : RecyclerView.ViewHolder(view) {
 
     init {
-        view.setOnClickListener { v -> clickSubject.onNext(adapterPosition) }
+        view.setOnClickListener { clickSubject.onNext(adapterPosition) }
     }
 
     internal fun bind(cube: Cube) {

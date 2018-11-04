@@ -10,5 +10,5 @@ import javax.inject.Singleton
 class PresenterModule {
     @Provides
     @Singleton
-    fun provideMainActivityPresenter(): CubePresenter = CubePresenterImpl()
+    fun provideCubePresenter(): CubePresenter = CubePresenterImpl()
 }
