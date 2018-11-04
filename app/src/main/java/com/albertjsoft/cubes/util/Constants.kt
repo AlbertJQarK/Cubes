@@ -1,5 +1,7 @@
 package com.albertjsoft.cubes.util
 
-object Constants {
-    var BASE_URL = "http://localhost"
+class Constants {
+    companion object {
+        const val BASE_URL = "http://localhost"
+    }
 }

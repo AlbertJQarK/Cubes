@@ -4,7 +4,7 @@ import com.albertjsoft.cubes.models.Cube
 import io.reactivex.Observable
 import retrofit2.http.*
 
-interface CubesService{
+interface CubeService{
     @GET("/api/board/{boardId}")
-    fun getCube(@Path("boardId") boardId: String): Observable<Cube>
+    fun getCube(@Path("boardId") boardId: Int): Observable<Cube>
 }

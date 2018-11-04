@@ -5,6 +5,7 @@ import com.albertjsoft.cubes.di.AppComponent
 import com.albertjsoft.cubes.di.AppModule
 import com.albertjsoft.cubes.di.DaggerAppComponent
 
+
 class  CubesApp : Application() {
 
     val component: AppComponent by lazy {
@@ -14,5 +15,11 @@ class  CubesApp : Application() {
     override fun onCreate() {
         super.onCreate()
         component.inject(this)
+        instance = this
+    }
+
+    companion object {
+        lateinit var instance: CubesApp
+            private set
     }
 }
